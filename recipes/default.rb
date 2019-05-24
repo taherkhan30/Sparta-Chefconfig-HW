@@ -31,11 +31,6 @@ template '/lib/systemd/system/mongod.service' do
 	notifies :restart, 'service[mongodb]'
 end
 
-# template '/etc/mongod.conf' do
-# 	source 'mongod.conf.erb'
-# 	notifies :restart, 'service[mongodb]'
-# end
-
 service 'mongodb' do
  supports status: true, restart: true, reload: true
  action [:unmask, :enable, :start]
